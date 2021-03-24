@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block main %}
+<form method="post" action="{{ url_for('property') }}" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+  
+     <!-- <input type="file" name="myFile" />
+     <button>Send the file</button> -->
+  
+  
+    {# Add the file upload field as you learnt for Flask-WTF #}
+    {{form.title.label}}
+    {{form.title}}
+
+    {{form.numofbed.label}}
+    {{form.numofbed}}
+    {{form.numofbath.label}}
+    {{form.numofbath}}
+    {{form.location.label}}
+    {{form.location}}
+    {{form.price.label}}
+    {{form.price}}
+    {{form.typeofproperty.label}}
+    {{form.typeofproperty}}
+    {{form.textarea.label}}
+    {{form.textarea}}
+
+    {{form.photo.label}}
+    {{form.photo}}
+
+    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
